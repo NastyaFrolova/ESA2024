@@ -1,0 +1,16 @@
+server:
+  port: 9000
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: NN07ZZg01P
+  jpa:
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+#  thymeleaf:
+#    prefix: classpath:/templates
+#    suffix: .html
+#    mode: HTML
+#    encoding: UTF-8

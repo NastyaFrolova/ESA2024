@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="https://jakarta.ee/xml/ns/jakarta.faces/html"
+      xmlns:f="https://jakarta.ee/xml/ns/jakarta.faces/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">>
+
+<h:head>
+<title>Books</title>
+<link rel="stylesheet" type="text/css" href="styles.css"/>
+</h:head>
+<h:body>
+<h1>Books</h1>
+<h:form>
+    <table class="exampleTable">
+        <thead class="exampleTableHeader">
+        <tr>
+            <th>Title</th>
+            <th>Publish date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <ui:repeat value="#{bookBean.books}" var="book">
+            <tr class="#{bookBean.books.indexOf(book) % 2 == 0 ? 'exampleTableEvenRow' : 'exampleTableOddRow'}">
+                <td>
+                    #{book.title}
+                </td>
+                <td>
+                    #{book.publishdate}
+                </td>
+            </tr>
+        </ui:repeat>
+        </tbody>
+    </table>
+
+    <h:outputLabel value="Title:" />
+    <h:inputText value="#{bookBean.title}" />
+
+    <h:outputLabel value="Publish date:" />
+    <h:inputText value="#{bookBean.publishdate}" />
+
+</h:form>
+</h:body>
+</html>

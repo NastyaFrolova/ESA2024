@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="https://jakarta.ee/xml/ns/jakarta.faces/html">
+<h:head>
+    <title>Book Management</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</h:head>
+<h:body>
+    <h1>Welcome to the Book Management Application!</h1>
+
+    <form action="author.xhtml" method="get" style="display: inline;">
+        <button class="btn" name="outcome" value="Author">Manage Authors</button>
+    </form>
+
+    <form action="book.xhtml" method="get" style="display: inline;">
+        <button class="btn" name="outcome" value="Book">Manage Books</button>
+    </form>
+
+    <h2>Features</h2>
+    <ul>
+        <li>Manage and view books.</li>
+        <li>Manage book authors.</li>
+        <li>View book details and update records.</li>
+    </ul>
+</h:body>
+</html>

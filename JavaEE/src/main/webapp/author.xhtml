@@ -1,0 +1,39 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="https://jakarta.ee/xml/ns/jakarta.faces/html"
+      xmlns:f="https://jakarta.ee/xml/ns/jakarta.faces/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:head>
+    <title>Authors</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</h:head>
+<h:body>
+    <h1>Authors</h1>
+    <h:form>
+        <table class="exampleTable">
+            <thead class="exampleTableHeader">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Birthdate</th>
+            </tr>
+            </thead>
+            <tbody>
+            <ui:repeat value="#{authorBean.authors}" var="author">
+                <tr class="#{authorBean.authors.indexOf(author) % 2 == 0 ? 'exampleTableEvenRow' : 'exampleTableOddRow'}">
+                    <td>
+                        #{author.id}
+                    </td>
+                    <td>
+                        #{author.name}
+                    </td>
+                    <td>
+                        #{author.birthdate}
+                    </td>
+                </tr>
+            </ui:repeat>
+            </tbody>
+        </table>
+    </h:form>
+</h:body>
+</html>

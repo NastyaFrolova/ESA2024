@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style>table th, table td {padding: 5px;}</style>
+</head>
+<body>
+    <h1>Authors</h1>
+
+    <p><a href="/"><button>Go back</button></a></p>
+
+    <table border="1">
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>birthdate</th>
+            <th>books</th>
+        </tr>
+
+        <tr th:each="author : ${authors2}">
+            <td th:utext="${author.id}">id</td>
+            <td th:utext="${author.name}">name</td>
+            <td th:utext="${author.birthdate}">birthdate</td>
+        </tr>
+
+    </table>
+
+    <h1>Create Author</h1>
+
+    <form action="#" th:action="@{/authors}" th:object="${authors}" method="post">
+        <p>Id: <input type="number" th:field="*{id}" /></p>
+        <p>Name: <input type="text" th:field="*{name}" /></p>
+        <p>BirthDate: <input type="date" th:field="*{birthdate}" /></p>
+
+        <p><input type="submit" value="Submit" /></p>
+    </form>
+
+</body>
+</html>
