@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library - Authors and Books</title>
+</head>
+<body>
+
+<div id="content"></div>
+
+<script type="text/javascript">
+    function loadXML(filename) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("GET", filename, false);
+        xhttp.send();
+        return xhttp.responseXML;
+    }
+
+    function loadXSL(filename) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("GET", filename, false);
+        xhttp.send();
+        return xhttp.responseXML;
+    }
+
+    function transformXMLToHTML(xmlFile, xslFile) {
+        var xml = loadXML(xmlFile);
+        var xsl = loadXSL(xslFile);
+
+        if (window.ActiveXObject || "ActiveXObject" in window) {
+            return xml.transformNode(xsl);
+        } else if (document.implementation && document.implementation.createDocument) {
+            var xsltProcessor = new XSLTProcessor();
+            xsltProcessor.importStylesheet(xsl);
+            return xsltProcessor.transformToFragment(xml, document);
+        }
+    }
+
+    var transformedHTML = transformXMLToHTML("library.xml", "transform.xsl");
+
+    document.getElementById("content").appendChild(transformedHTML);
+</script>
+
+</body>
+</html>

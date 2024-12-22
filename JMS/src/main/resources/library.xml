@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    <xsl:for-each select="authors/author">
+        <tr>
+            <td><xsl:value-of select="id"/></td>
+            <td><xsl:value-of select="name"/></td>
+            <td><xsl:value-of select="birth_date"/></td>
+            <td>
+                <ul>
+                    <xsl:for-each select="books/book">
+                        <li><xsl:value-of select="title"/></li>
+                    </xsl:for-each>
+                </ul>
+            </td>
+        </tr>
+    </xsl:for-each>
+</library>
